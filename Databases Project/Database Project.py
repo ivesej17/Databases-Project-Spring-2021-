@@ -104,11 +104,6 @@ def get_user_option(low,high):
                 return user_input
         
 
-
-
-
-
-
 #Pulling Sequal queries into python
 #Displays a text based mysql query
 def push_select_query(query):
@@ -235,10 +230,6 @@ def insert_customer_purchase(purchase_id, customer_id, product_id, retail_price,
             "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     args = (purchase_id, customer_id, product_id, retail_price, quantity, total, payment_method, account_number, date_time)
     insert_try(query, args)
-
-
-
-
 
 
 
@@ -593,21 +584,4 @@ def main_loop():
         if user_input == '6':
             functions()
 
-
-
-
-
 main_loop()
-
-
-
-
-
-
-
-
-
-
-
-
-
