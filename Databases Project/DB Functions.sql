@@ -12,12 +12,12 @@ DETERMINISTIC
 BEGIN
 	DECLARE profit DECIMAL(15,2);
 	SELECT SUM(total) INTO @income FROM customer_purchase
-    WHERE date_time BETWEEN date1 AND date2;
+    	WHERE date_time BETWEEN date1 AND date2;
     
    
 	SELECT SUM(expenses) INTO @expenses
 	FROM business_revenue
-    WHERE date_time BETWEEN date1 AND date2;
+    	WHERE date_time BETWEEN date1 AND date2;
     
     SET profit = @income - @expenses; 
     RETURN profit;
@@ -29,7 +29,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE payments_to_vendor(date1 DATETIME, date2 DATETIME)
 BEGIN
-	SELECT vendor_name, date_time, product_id, wholesale_price
+    SELECT vendor_name, date_time, product_id, wholesale_price
     FROM vendor v 
     NATURAL JOIN business_purchase b
     WHERE v.vendor_id = b.vendor_id
@@ -43,7 +43,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE show_customer_transactions(date1 DATETIME, date2 DATETIME)
 BEGIN
-	SELECT * FROM customer_purchase 
+    SELECT * FROM customer_purchase 
     WHERE date_time BETWEEN date1 AND date2;
 END $$
 DELIMITER ;
